@@ -1,0 +1,25 @@
+.banner{
+    position: relative;
+}
+.banner a{
+    text-decoration: none;
+}
+.unselected{
+    color: aqua;
+}
+a{
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(80, 75, 75);
+}
+a:hover{
+    color: aquamarine;
+}
+a.active{
+    color: rgb(165, 118, 42);
+    font-weight: bolder;
+    text-decoration: underline;
+}
+.last-checkout:hover{
+    background-color: aquamarine;
+}

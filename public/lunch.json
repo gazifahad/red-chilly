@@ -1,0 +1,50 @@
+[
+    {
+        "id":1,
+        "name":"lunch healthy menu",
+        "description":"Lorem ipsum dolor sit amet, consectetu radipisi cing " ,
+        "price": "100tk",
+        "img":"https://i.ibb.co/XkN7hSd/breakfast1.png"
+
+    },
+    {
+        "id":2,
+        "name":"supper dupper",
+        "description":"Lorem ipsum dolor sit amet, consectetu radipisi cing " ,
+        "price": "200tk",
+        "img":"https://i.ibb.co/BrCJNPD/breakfast2.png"
+    },
+    {
+        "id":3,
+        "name":"delicius special",
+        "description":"Lorem ipsum dolor sit amet, consectetu radipisi cing " ,
+        "price": "250tk",
+        "img":"https://i.ibb.co/SPb7YBN/breakfast3.png"
+    },
+    {
+        "id":4,
+        "name":"healthy curry",
+        "description":"Lorem ipsum dolor sit amet, consectetu radipisi cing " ,
+        "price": "150tk",
+        "img":"https://i.ibb.co/RvWSvPg/breakfast5.png"
+    },
+    {
+        "id":5,
+        "name":"hot masala",
+        "description":"Lorem ipsum dolor sit amet, consectetu radipisi cing " ,
+        "price": "250tk",
+        "img":"https://i.ibb.co/Fm3JfL8/breakfast6.png"
+    },
+    {
+        "id":6,
+        "name":"chicken special",
+        "description":"Lorem ipsum dolor sit amet, consectetu radipisi cing " ,
+        "price": "100tk",
+        "img":"https://i.ibb.co/cQrYQbX/breakfast4.png"
+
+    }
+]
+
+
+
+
