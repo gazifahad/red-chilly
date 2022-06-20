@@ -9,6 +9,7 @@ import {useNavigate} from 'react-router-dom';
 // import './home.scss'
 
 const Home = () => {
+  
   const navigate=useNavigate();
   
   const handleCheckout=()=>{
@@ -34,22 +35,22 @@ const Home = () => {
         </header>
         <section className='outlet '>
           <section className=' w-25 mx-auto d-flex justify-content-around mb-5'>
-            <NavLink to={'breakfast'}
+            <NavLink to="breakfast"
              
             >Breakfast </NavLink>
-            <NavLink to={'lunch'}
+            <NavLink to="lunch"
               
             >Lunch</NavLink>
-            <NavLink to={'dinner'}
+            <NavLink to="dinner"
               
             > Dinner</NavLink>
 
           </section>
           <Outlet></Outlet>
-          <Button onClick={handleCheckout} className='last-checkout bg-secondary'> Checkout your food</Button>
+          <Button onClick={handleCheckout} className='last-checkout bg-secondary d-block mx-auto'> Checkout your food</Button>
         </section>
         <section className='choose-use mt-5'>
-          <h2 className=' mb-4'>Why will you choose us?</h2>
+          <h2 className='text-center mb-4'>Why will you choose us?</h2>
           <ChooseUs></ChooseUs>
 
         </section>

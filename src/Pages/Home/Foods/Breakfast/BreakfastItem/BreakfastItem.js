@@ -9,7 +9,7 @@ const BreakfastItem = ({item}) => {
 <div className="card-body">
  <h5 className="card-title">{name}</h5>
  <p className="card-text">It is delicius</p>
- <p  BGCOLOR="red">price: {price}</p>
+ <p  >price: {price}</p>
  <a href="ss" className="btn btn-success">Add to cart</a>
 </div>
 </div>

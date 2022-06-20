@@ -1,0 +1,7 @@
+.form-container{
+    height: 100vh;
+    background-image: url('../../../images/bannerbackground.png');
+}
+.full-form{
+    background-color: rgba(232, 247, 247, 0.909);
+}
