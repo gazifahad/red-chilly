@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Registration.css'
-import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from './../../../firebase.init';
 
 
@@ -15,13 +15,14 @@ const Registration = () => {
     const retypePasswordRef=useRef("");
     const agreementRef=useRef(false);
     const [sendEmailVerification, sending, verificationerror] = useSendEmailVerification(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const [
         createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-      ] = useCreateUserWithEmailAndPassword(auth);
-      const formSignUp=async (event)=>{
+        user,loading, error] = useCreateUserWithEmailAndPassword(auth);
+        if(user){
+          navigate('/');
+        }
+            const formSignUp=async (event)=>{
             event.preventDefault();
             const name=nameRef.current.value;
             const email=emailRef.current.value;
@@ -30,12 +31,11 @@ const Registration = () => {
             const agreement=agreementRef.current.checked;
           await createUserWithEmailAndPassword(email,password);
           await sendEmailVerification(email);
+          await updateProfile({displayName: name});
           
-    
+         
       }
-      if(user){
-        navigate('/');
-      }
+     
      
     return (
         <div className="form-container  d-block border-2 ">

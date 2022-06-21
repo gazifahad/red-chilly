@@ -39,8 +39,7 @@ const Home = () => {
              
             >Breakfast </NavLink>
             <NavLink to="lunch"
-              
-            >Lunch</NavLink>
+           >Lunch</NavLink>
             <NavLink to="dinner"
               
             > Dinner</NavLink>

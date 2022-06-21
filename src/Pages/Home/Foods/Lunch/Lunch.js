@@ -12,7 +12,7 @@ const Lunch = () => {
     },[])
     return (
         <div className='container'>
-            <h2>Lunch Items</h2>
+            <h2 className='text-center'>Lunch Items</h2>
             <div className="row">
             {
                 lunch.map(item=> <LunchItem key={item.id} item={item}></LunchItem>)

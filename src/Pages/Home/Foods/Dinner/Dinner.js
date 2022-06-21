@@ -10,7 +10,7 @@ const Dinner = () => {
     },[])
     return (
         <div className='container'>
-        <h2>Dinner Items</h2>
+        <h2 className='text-center'>Dinner Items</h2>
         <div className="row">
         {
             dinner.map(item=> <DinnerItem key={item.id} item={item}></DinnerItem>)

@@ -1,7 +1,11 @@
 .form-container{
     height: 100vh;
     background-image: url('../../../images/bannerbackground.png');
+    position: relative;
 }
 .full-form{
-    background-color: rgba(232, 247, 247, 0.909);
+    
+    background-color: rgba(247, 241, 242, 0.909);
+    padding: 30px;
+
 }

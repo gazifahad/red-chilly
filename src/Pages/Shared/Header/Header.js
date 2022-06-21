@@ -6,23 +6,33 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../../../images/logo.png'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import './Header.css'
+
+import auth from './../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+    
+    const [user]=useAuthState(auth);
+    const logOut=()=>{
+     signOut(auth);   
+    }
     return (
         <>
        
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='sticky-top'>
                 <Container>
                
        
-          <Navbar.Brand as={Link} to='/home'><img style={{height:'20px'}} className='img-fluid' src={logo} alt="" /></Navbar.Brand>
+          <Navbar.Brand as={Link} to='/'><img style={{height:'20px'}} className='img-fluid' src={logo} alt="" /></Navbar.Brand>
      
       
-                    <Navbar.Brand href="/home">Red-chilly</Navbar.Brand>
+                    <Navbar.Brand href="/">Red-chilly</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                        <Nav.Link as={Link} to='/home'>Home</Nav.Link>  
+                        <Nav.Link as={Link} to='/'>Home</Nav.Link>  
 
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -38,8 +48,11 @@ const Header = () => {
                         </Nav>
 
 
-                        <Nav.Link as={Link} to='/login'>Login</Nav.Link>
-                        <Nav.Link as={Link} to='/register'>Register</Nav.Link>
+                    {
+                        user ? <nav className='d-flex justify-content-center align-items-center'><b className='text-white'>{user?.displayName} </b> <Nav.Link className='logout' onClick={logOut}  as={Link} to='/login'>Logout</Nav.Link> </nav>  : <nav className='d-flex login-header'>
+                            <Nav.Link  as={Link} to='/login'>Login</Nav.Link> <Nav.Link as={Link} to='/register'>Register</Nav.Link>
+                        </nav>
+                    }
 
 
                     </Navbar.Collapse>

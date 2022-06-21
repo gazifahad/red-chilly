@@ -1,28 +1,77 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './Login.css'
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { async } from '@firebase/util';
+import auth from './../../../firebase.init';
 
 const Login = () => {
+    const [sendPasswordResetEmail, sending, rseterror] = useSendPasswordResetEmail(
+        auth
+      );
+    const navigate=useNavigate();
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+
+      const location=useLocation();
+     let from = location.state?.from?.pathname || "/";
+    const handleLoginSubmit=async (event)=>{
+        event.preventDefault();
+        const email=event.target.email.value;
+        const password=event.target.password.value;
+        console.log(email,password);
+        await signInWithEmailAndPassword(email,password);
+        navigate(from, { replace: true });
+}
+const emailRef=useRef('');
+const resetPassword=async ()=>{
+    const email=emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    toast("please check ur email");
+}
+if(user){
+   navigate('/'); 
+}
+
     return (
-       <div className="form-container d-flex align-items-center
-       justify-content-center position-relative">
-         <Form className='container full-form w-50 text-black-50   position-absolute  bold'>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+       <div className="form-container">
+        <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+         <Form onSubmit={handleLoginSubmit} className='container full-form 
+         text-black-50 w-50 mt-5  bold'>
+        <Form.Group  className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control required ref={emailRef} type="email" name='email' placeholder="Enter email" />
           
         </Form.Group>
   
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control required type="password" name='password' placeholder="Password" />
         </Form.Group>
         
         <Button className='d-block w-100 btn-success' variant="primary" type="submit">
          Login
         </Button>
+        <p className='mt-2'>forgot password? <span ><Button onClick={resetPassword} className='text-decoration-none  btn-secondary ' >Reset Password</Button></span></p>
         <p>Not a member? <span><Link className='text-decoration-none' to={'/register'}>Signup here</Link></span></p>
       </Form>
        </div>
