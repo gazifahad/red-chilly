@@ -18,6 +18,7 @@ const Header = () => {
     const logOut=()=>{
      signOut(auth);   
     }
+    
     return (
         <>
        

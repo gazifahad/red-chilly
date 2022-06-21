@@ -30,7 +30,9 @@ const Login = () => {
         const password=event.target.password.value;
         console.log(email,password);
         await signInWithEmailAndPassword(email,password);
-        navigate(from, { replace: true });
+       if(user){
+         navigate(from, { replace: true })
+       }
 }
 const emailRef=useRef('');
 const resetPassword=async ()=>{
@@ -39,7 +41,7 @@ const resetPassword=async ()=>{
     toast("please check ur email");
 }
 if(user){
-   navigate('/'); 
+    navigate(from, { replace: true })
 }
 
     return (
