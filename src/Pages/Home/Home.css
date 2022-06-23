@@ -1,8 +1,18 @@
+/* body{
+    background-color: rgb(244, 241, 238);
+} */
+.text-box{
+    width: 50%;
+}
 .banner{
     position: relative;
 }
 .banner a{
     text-decoration: none;
+}
+.home-header-section{
+    height: 100vh;
+    /* background-color: blue; */
 }
 .unselected{
     color: aqua;
@@ -10,7 +20,7 @@
 a{
     font-size: larger;
     font-weight: bold;
-    color: rgb(80, 75, 75);
+    color: rgb(165, 19, 19);
 }
 a:hover{
     color: aquamarine;
@@ -22,4 +32,19 @@ a.active{
 }
 .last-checkout:hover{
     background-color: aquamarine;
+}
+.lower-menu{
+    /* width: 10rem; */
+}
+
+@media only screen and (max-width: 600px ) {
+    .home-header-section{
+    height:auto;
+    /* border: 3px solid red; */
+   
+  
+}
+.text-box{
+    width: 80%;
+}
 }

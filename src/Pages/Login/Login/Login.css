@@ -1,7 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .form-container{
-    height: 100vh;
+    height: 100%;
     background-image: url('../../../images/bannerbackground.png');
+    /* background-position: center; Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
     position: relative;
+
 }
 .full-form{
     

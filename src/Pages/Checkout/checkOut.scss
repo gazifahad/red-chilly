@@ -1,0 +1,34 @@
+$bgColor:rgb(232, 223, 223);
+$btnColor:rgb(185, 181, 181);
+
+.checkout-body{
+ height: 100vh;
+ max-height: max-content;
+
+margin: 0;
+
+background-color: $bgColor;
+ 
+
+}
+.checkout-inputs{
+
+  height: 100%;
+}
+
+.checkout-inputs input{
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid rgb(113, 119, 119);
+  display: block;
+  height: 40px;
+
+  // border: 2px solid whitesmoke;
+ }
+ .checkout-inputs label{
+  font-size: larger;
+ }
+ .checkout-inputs .address{
+  display: block;
+  height: 80px;
+ }

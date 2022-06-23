@@ -11,10 +11,14 @@ import Dinner from './Pages/Home/Foods/Dinner/Dinner';
 import NoMatch from './Pages/Shared/Nomatch/NoMatch';
 import CheckOut from './Pages/Checkout/CheckOut';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
+import Map from './Pages/Shared/Map/Map';
+
+
 
 function App() {
   return (
     <div className="App">
+      
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}>
@@ -25,10 +29,9 @@ function App() {
           <Route path='dinner' element={<Dinner></Dinner>}></Route>
         </Route>
         <Route path='/home' element={<Home></Home>}>
-        
-          
-          </Route>
+     </Route>
         <Route path='/login' element={<Login></Login> }></Route>
+        <Route path='/map' element= {<Map></Map> }></Route>
         <Route path='/checkout' element={
         <RequireAuth>
         <CheckOut></CheckOut>

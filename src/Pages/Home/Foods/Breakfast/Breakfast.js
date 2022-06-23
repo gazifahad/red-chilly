@@ -9,7 +9,7 @@ const Breakfast = () => {
        .then(data=>setBreakfast(data));
     },[])
     return (
-        <div className='container'>
+        <div className='container '>
         <h2 className='text-center'>Breakfast Items</h2>
         <div className="row">
         {
